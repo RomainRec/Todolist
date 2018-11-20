@@ -1,24 +1,55 @@
-# README
+# THP Semaine 8 Jour 2
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Sur Slack :
 
-Things you may want to cover:
+* Romain Recher     slack/  @Romain 
 
-* Ruby version
+## Lien vers le repo :
 
-* System dependencies
+```
+   $> git clone https://github.com/RomainRec/Todolist.git
+```
+              
+## Lien vers le project en production :
 
-* Configuration
+Un lien en production dont toutes les fonctionnatiltés ne marchent pas. 
+https://todolistgrenobleuh.herokuapp.com/
+Préférable de lancer l'appli en local.
 
-* Database creation
 
-* Database initialization
+## Note au/à la correcteur(rice) :
+- Tabulation OK :  "tab où chaque liste correspondra à un onglet, et lors du clic sur cet onglet, les éléments de cette liste seront affichés"
+- Le dropdown qui fait plaisir : OK (sur l'avatar)
+- Modales de connexion/inscription : OK (sur le bouton +Option)
+- Une navbar responsive : OK (par défaut)
+- Carousel : OK (pas automatique, dot ne fonctionnent pas)
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## Etapes d'utilisation :
 
-* Deployment instructions
+Pour pouvoir profiter des gems, n'oublie pas un petit :
+```
+   $> bundle install
+```
 
-* ...
+Ensuite : 
+```
+   $> rails db:create
+```
+
+Et: 
+```
+   $> rails db:seed
+```
+
+Puis : 
+```
+   $> rails db:migrate
+```
+
+Et enfin  : 
+```
+   $> rails s
+```
+
+Merci !!
