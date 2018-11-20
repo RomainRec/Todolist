@@ -2,27 +2,108 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+
     <%= link_to "Sandbox App", root_path, class: "navbar-brand" %>
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 
-      <% unless user_signed_in? %>
-      <li class="nav-item">
-        <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
-      </li>
-      <% else %>
-      <li class="nav-item">
-        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
-      </li>
-      <% end %>
-      <li class="nav-item">
-        <%= link_to "New task", new_task_path, class: "nav-link" %>
-      </li>
+      <div id="titleheader">
+          <ul id ="ulheader">
+          <% unless user_signed_in? %>
+          <li class="nav-item">
+          <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+          <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
+          </li>
+          <% else %>
+          <li class="nav-item">
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
+          </li>
+          <% end %>
+          <li class="nav-item">
+          <%= link_to "New task", new_task_path, class: "nav-link" %>
+          </li>
+          </ul>
+      </div>
       
-    </ul>
-        <img class="rounded-circle" height="50px" width="50px" src="http://digitalspyuk.cdnds.net/17/25/320x320/square-1498216547-avatar-neytiri.jpg">
+ <!-- MODAL-->
+        <div class="right">
+        <ul id ="ulheader">
+                  <li>
+                  <!-- Trigger/Open The Modal -->
+          <button id="myBtn" class="connexion"> + Option</button>
+
+          <!-- The Modal -->
+          <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+              <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>ATTENTION </h2>
+              </div>
+              <div class="modal-body">
+                <p>Enregistre-toi avant !!</p>
+              </div>
+              <div class="modal-footer">
+                <h3><%= link_to "Sign up", new_user_registration_path, class: "nav-link" %></h3>
+              </div>
+            </div>
+
+          </div>
+
+          <script>
+          // Get the modal
+          var modal = document.getElementById('myModal');
+
+          // Get the button that opens the modal
+          var btn = document.getElementById("myBtn");
+
+          // Get the <span> element that closes the modal
+          var span = document.getElementsByClassName("close")[0];
+
+          // When the user clicks the button, open the modal 
+          btn.onclick = function() {
+              modal.style.display = "block";
+          }
+
+          // When the user clicks on <span> (x), close the modal
+          span.onclick = function() {
+              modal.style.display = "none";
+          }
+
+          // When the user clicks anywhere outside of the modal, close it
+          window.onclick = function(event) {
+              if (event.target == modal) {
+                  modal.style.display = "none";
+              }
+          }
+          </script>
+
+ <!-- END MODAL-->
+
+
+ <!-- AVATAR DROPDOWN-->
+
+<li>
+          <div class="dropdown">
+        <img src="http://digitalspyuk.cdnds.net/17/25/320x320/square-1498216547-avatar-neytiri.jpg" class="avatar dropdown-toggle" id="dropdownMenu" data-toggle="dropdown" >
+        <ul class="dropdown-content" aria-labelledby="dropdownMenu">
+          <li><%= link_to "Log in", new_user_session_path, class: "nav-link" %></li>
+          <li><%= link_to "Sign up", new_user_registration_path, class: "nav-link" %></li>
+          <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
+          <li role="separator" class="divider"></li>
+        </ul>
+          </div>
+        </li>
+
+        </ul>
+        </div>
+
+
   </div>
+
+
+<!-- END AVATAR DROPDOWN-->
 </nav>

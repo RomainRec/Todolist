@@ -1,14 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+<section>
 <h1 class="text-center mb-4">Welcome to my todolist app</h1>
 <%= render 'layouts/task_form'  %>
+
+<br>
+
+ <!-- SLIDESHOW  -->
+ <div id="showContainer">
+
+      <div class="imageContainer" id="im_1">
+        <img src="assets/img1.jpg" class="img_size"/>
+      </div>
+
+      <div class="imageContainer" id="im_2">
+        <img src="assets/img2.jpg" class="img_size" />
+      </div>
+
+      <div class="imageContainer" id="im_3">
+        <img src="assets/img3.jpg" class="img_size"/>
+      </div>
+
+      <div class="navButton" id="previous">&#10094;</div>
+      <div class="navButton" id="next">&#10095;</div>
+    </div>
+
+
+    <!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+<!-- SLIDESHOW END -->
+
+
+<br>
+
+ <!-- Tab links -->
 <div class="container">
-  <ul>
+  <ul class="tab" >
   <% @categories.each do  |category|%>
-  <li><%= category.title  %></li>
-  <div class="card">
+  <button class="tablinks"  onclick="openCity(event, 'card_<%= category.id %>')"><%= category.title %></button>
+  <% end %>
+</ul>
+<% @categories.each do  |category|%>
+  <div id="card_<%= category.id %>" class="tabcontent">
     <ul>
       <% category.tasks.each do |task|  %>
       <li>
-        <%= task.title  %>
+        <%= task.title %>
         <% unless task.deadline.nil? %>
           , to read: <%= task.deadline.strftime('%D')  %>
         <% end %>
@@ -19,15 +62,23 @@
   <% end %>
   </ul>
 </div>
-
-<div class="container">
-  <div class="row">
-    <% @tasks.each do |task|  %>
-      <div class="card col-3">
-        <% unless task.image.nil? %>
-          <%= image_tag task.image, class: "rounded-circle" %>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
 </div>
+
+
+</section>
+
+    <footer>
+      <div id="bottom">
+        <ul id="bloc_left">
+          <li><a href = ""> In English </a> </li>
+          <li><a href = ""> À Propos </a> </li>
+          <li><a href = ""> Nous soutenir </a> </li>
+        </ul>
+        <ul id="bloc_right">
+          <li><a href = ""> FAQ </a> 
+          <li><a href = ""> Paramètres </a> </li>
+        </ul>
+      </div>
+    </footer>
+</body>
+</html>

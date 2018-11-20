@@ -20,7 +20,6 @@ before_action :authenticate_user!
   def edit
     @task = Task.find(params[:id])
     @categories = Category.all
-
   end
 
   def update
